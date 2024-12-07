@@ -38,6 +38,8 @@
             dtp_date = new DateTimePicker();
             btn_add = new Button();
             tb_amount = new TextBox();
+            btn_save = new Button();
+            timer2 = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)dgv_expenses).BeginInit();
             SuspendLayout();
             // 
@@ -110,11 +112,22 @@
             tb_amount.Size = new Size(146, 23);
             tb_amount.TabIndex = 7;
             // 
+            // btn_save
+            // 
+            btn_save.Location = new Point(23, 303);
+            btn_save.Name = "btn_save";
+            btn_save.Size = new Size(75, 23);
+            btn_save.TabIndex = 8;
+            btn_save.Text = "Save";
+            btn_save.UseVisualStyleBackColor = true;
+            btn_save.Click += btn_save_Click;
+            // 
             // HomePage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btn_save);
             Controls.Add(tb_amount);
             Controls.Add(btn_add);
             Controls.Add(dtp_date);
@@ -141,5 +154,7 @@
         private DateTimePicker dtp_date;
         private Button btn_add;
         private TextBox tb_amount;
+        private Button btn_save;
+        private System.Windows.Forms.Timer timer2;
     }
 }

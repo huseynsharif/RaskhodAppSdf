@@ -18,7 +18,7 @@ namespace RaskhodApp.UI
         public ExpenseTypePage()
         {
             InitializeComponent();
-            expensesTypeManager = new ExpensesTypeManager(new MyDbContext2);
+            expensesTypeManager = new ExpensesTypeManager(new MyDbContext2());
         }
 
         private void btn_save_Click(object sender, EventArgs e)

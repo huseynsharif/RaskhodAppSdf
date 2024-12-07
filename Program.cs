@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using RaskhodApp.Models2;
 using RaskhodApp.UI;
+using RaskhodApp.utils;
 
 namespace RaskhodApp
 {
@@ -16,11 +17,19 @@ namespace RaskhodApp
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             MyDbContext2 dbContext = new MyDbContext2();
-            Login loginPage = new Login(dbContext);
-            if (loginPage.ShowDialog() == DialogResult.OK)
+            
+            try
             {
-                
-                Application.Run(new HomePage(dbContext, loginPage.loggedInUser));
+                Login loginPage = new Login(dbContext);
+                if (loginPage.ShowDialog() == DialogResult.OK)
+                {
+
+                    Application.Run(new HomePage(dbContext, loginPage.loggedInUser));
+                }
+            }
+            catch (Exception ex)
+            {
+                JsonLogger.LogError(ex);
             }
 
         }

@@ -9,7 +9,7 @@ public partial class Expense
 
     public int UserId { get; set; }
 
-    public DateOnly Date { get; set; }
+    public DateTime Date { get; set; }
 
     public int ExpenseTypeId { get; set; }
 
@@ -18,4 +18,12 @@ public partial class Expense
     public virtual ExpenseType ExpenseType { get; set; } = null!;
 
     public virtual User User { get; set; } = null!;
+
+    public Expense(int userId, DateTime date, int expenseTypeId, double amount)
+    {
+        UserId = userId;
+        Date = date;
+        ExpenseTypeId = expenseTypeId;
+        Amount = amount;
+    }
 }

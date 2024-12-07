@@ -11,7 +11,7 @@ namespace RaskhodApp.UI
         private readonly MyDbContext2 _dbContext;
         private readonly UserManager userManager;
 
-        public String loggedInUser;
+        public User loggedInUser;
         public Login(MyDbContext2 dbContext)
         {
             InitializeComponent();
@@ -24,7 +24,7 @@ namespace RaskhodApp.UI
         {
             if (CheckInputs() && CheckEmailAndPassword())
             {
-                loggedInUser = userManager.GetByEmail(tb_email.Text).Name;
+                loggedInUser = userManager.GetByEmail(tb_email.Text);
                 NavigateToHome();
             }
             

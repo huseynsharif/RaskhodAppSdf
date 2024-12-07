@@ -20,5 +20,10 @@ namespace RaskhodApp.business
         {
             return _dbContext.Expenses.ToList();
         }
+        public void Add(Expense expense) 
+            {
+                _dbContext.Expenses.Add(expense);
+            _dbContext.SaveChanges();
+            }
     }
 }
